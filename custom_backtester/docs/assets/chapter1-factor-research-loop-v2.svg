@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1750" viewBox="0 0 1400 1750" role="img" aria-labelledby="title desc">
+  <title id="title">第一章：基于强化学习的因子生成与有效性检验四模块闭环</title>
+  <desc id="desc">以四个核心模块展示研究数据与样本、强化学习因子生成、因子评价与单因子回测、因子筛选与因子库构建。每个模块内部包含关键子流程，未通过筛选的结果返回因子生成阶段形成闭环。</desc>
+  <defs>
+    <linearGradient id="page-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F5F9FE"/>
+      <stop offset="0.16" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F8FBFE"/>
+    </linearGradient>
+    <linearGradient id="header-blue" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#EAF3FD"/>
+      <stop offset="1" stop-color="#F7FBFF"/>
+    </linearGradient>
+    <linearGradient id="header-green" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#E8F6EF"/>
+      <stop offset="1" stop-color="#F7FCF9"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-15%" width="120%" height="145%">
+      <feDropShadow dx="0" dy="5" stdDeviation="9" flood-color="#183A5D" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow-blue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M1,1 L11,6 L1,11 Z" fill="#1C67B5"/>
+    </marker>
+    <marker id="arrow-small" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M1,1 L9,5 L1,9 Z" fill="#5C8FC7"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M1,1 L11,6 L1,11 Z" fill="#D7772B"/>
+    </marker>
+    <style>
+      .kicker{font:600 18px "Microsoft YaHei","PingFang SC","Noto Sans CJK SC",Arial,sans-serif;fill:#1C67B5;letter-spacing:2px}
+      .title{font:700 38px "Microsoft YaHei","PingFang SC","Noto Sans CJK SC",Arial,sans-serif;fill:#173B61}
+      .subtitle{font:400 18px "Microsoft YaHei","PingFang SC","Noto Sans CJK SC",Arial,sans-serif;fill:#667B90}
+      .card{fill:#FFFFFF;stroke:#7FADE0;stroke-width:2.5;filter:url(#shadow)}
+      .card-final{fill:#FFFFFF;stroke:#59A17A;stroke-width:2.8;filter:url(#shadow)}
+      .header{fill:url(#header-blue)}
+      .header-final{fill:url(#header-green)}
+      .module-title{font:700 28px "Microsoft YaHei","PingFang SC","Noto Sans CJK SC",Arial,sans-serif;fill:#203B57}
+      .module-tag{font:600 15px "Microsoft YaHei","PingFang SC","Noto Sans CJK SC",Arial,sans-serif;fill:#4E7195;letter-spacing:1px}
+      .number{fill:#1768C4}
+      .number-final{fill:#2F7D5C}
+      .number-text{font:700 23px Arial,sans-serif;fill:#FFFFFF;text-anchor:middle;dominant-baseline:middle}
+      .node{fill:#F7FAFE;stroke:#B6CCE4;stroke-width:1.6}
+      .node-output{fill:#EEF8F3;stroke:#8EBFA5;stroke-width:1.7}
+      .node-title{font:600 18px "Microsoft YaHei","PingFang SC","Noto Sans CJK SC",Arial,sans-serif;fill:#29445F;text-anchor:middle}
+      .node-sub{font:400 14px "Microsoft YaHei","PingFang SC","Noto Sans CJK SC",Arial,sans-serif;fill:#6B7E91;text-anchor:middle}
+      .note{font:400 16px "Microsoft YaHei","PingFang SC","Noto Sans CJK SC",Arial,sans-serif;fill:#64788B;text-anchor:middle}
+      .main-arrow{fill:none;stroke:#1768C4;stroke-width:4;marker-end:url(#arrow-blue)}
+      .small-arrow{fill:none;stroke:#5C8FC7;stroke-width:2.5;marker-end:url(#arrow-small)}
+      .feedback{fill:none;stroke:#D7772B;stroke-width:4;stroke-dasharray:11 8;marker-end:url(#arrow-orange)}
+      .feedback-label{font:600 16px "Microsoft YaHei","PingFang SC","Noto Sans CJK SC",Arial,sans-serif;fill:#B65E1C;text-anchor:middle}
+      .legend{font:400 15px "Microsoft YaHei","PingFang SC","Noto Sans CJK SC",Arial,sans-serif;fill:#6B7E91}
+    </style>
+  </defs>
+
+  <rect width="1400" height="1750" fill="url(#page-bg)"/>
+  <text x="700" y="48" class="kicker" text-anchor="middle">研究方案 · 第一章</text>
+  <text x="700" y="96" class="title" text-anchor="middle">基于强化学习的因子生成与有效性检验</text>
+  <text x="700" y="136" class="subtitle" text-anchor="middle">四大核心流程为主线 · 每个模块内部保留关键实现步骤</text>
+
+  <!-- Chapter-level main flow -->
+  <path class="main-arrow" d="M700 460 L700 520"/>
+  <path class="main-arrow" d="M700 805 L700 865"/>
+  <path class="main-arrow" d="M700 1150 L700 1210"/>
+
+  <!-- Module 1 -->
+  <rect class="card" x="170" y="190" width="1060" height="270" rx="22"/>
+  <path class="header" d="M192 190H1208Q1230 190 1230 212V295H170V212Q170 190 192 190Z"/>
+  <circle class="number" cx="230" cy="242" r="31"/>
+  <text class="number-text" x="230" y="242">1</text>
+  <text class="module-title" x="285" y="250">研究数据与样本</text>
+  <text class="module-tag" x="1170" y="248" text-anchor="end">数据基础</text>
+  <rect class="node" x="215" y="322" width="205" height="76" rx="13"/>
+  <text class="node-title" x="317.5" y="353">A股日频数据</text>
+  <text class="node-sub" x="317.5" y="379">价格 · 成交 · 技术指标</text>
+  <path class="small-arrow" d="M430 360H458"/>
+  <rect class="node" x="470" y="322" width="205" height="76" rx="13"/>
+  <text class="node-title" x="572.5" y="353">样本质量筛选</text>
+  <text class="node-sub" x="572.5" y="379">流动性 · 完整性</text>
+  <path class="small-arrow" d="M685 360H713"/>
+  <rect class="node" x="725" y="322" width="205" height="76" rx="13"/>
+  <text class="node-title" x="827.5" y="353">研究股票池</text>
+  <text class="node-sub" x="827.5" y="379">500只股票</text>
+  <path class="small-arrow" d="M940 360H968"/>
+  <rect class="node-output" x="980" y="322" width="205" height="76" rx="13"/>
+  <text class="node-title" x="1082.5" y="353">时序样本划分</text>
+  <text class="node-sub" x="1082.5" y="379">训练 · 验证 · 测试</text>
+  <text class="note" x="700" y="430">38个模型输入字段 · 以未来20个交易日收益作为预测目标</text>
+
+  <!-- Module 2 -->
+  <rect class="card" x="170" y="535" width="1060" height="270" rx="22"/>
+  <path class="header" d="M192 535H1208Q1230 535 1230 557V640H170V557Q170 535 192 535Z"/>
+  <circle class="number" cx="230" cy="587" r="31"/>
+  <text class="number-text" x="230" y="587">2</text>
+  <text class="module-title" x="285" y="595">基于强化学习的因子生成</text>
+  <text class="module-tag" x="1170" y="593" text-anchor="end">候选生成</text>
+  <rect class="node" x="215" y="667" width="205" height="76" rx="13"/>
+  <text class="node-title" x="317.5" y="698">表达式空间</text>
+  <text class="node-sub" x="317.5" y="724">字段 · 算子 · 时间窗口</text>
+  <path class="small-arrow" d="M430 705H458"/>
+  <rect class="node" x="470" y="667" width="205" height="76" rx="13"/>
+  <text class="node-title" x="572.5" y="698">PPO策略采样</text>
+  <text class="node-sub" x="572.5" y="724">逐步选择动作</text>
+  <path class="small-arrow" d="M685 705H713"/>
+  <rect class="node" x="725" y="667" width="205" height="76" rx="13"/>
+  <text class="node-title" x="827.5" y="698">组合表达式</text>
+  <text class="node-sub" x="827.5" y="724">字段 + 算子 + 参数</text>
+  <path class="small-arrow" d="M940 705H968"/>
+  <rect class="node-output" x="980" y="667" width="205" height="76" rx="13"/>
+  <text class="node-title" x="1082.5" y="698">候选因子</text>
+  <text class="node-sub" x="1082.5" y="724">可计算表达式</text>
+  <text class="note" x="700" y="775">通过语法与动作约束保证表达式合法，评价结果用于更新PPO策略</text>
+
+  <!-- Module 3 -->
+  <rect class="card" x="170" y="880" width="1060" height="270" rx="22"/>
+  <path class="header" d="M192 880H1208Q1230 880 1230 902V985H170V902Q170 880 192 880Z"/>
+  <circle class="number" cx="230" cy="932" r="31"/>
+  <text class="number-text" x="230" y="932">3</text>
+  <text class="module-title" x="285" y="940">因子评价与单因子回测</text>
+  <text class="module-tag" x="1170" y="938" text-anchor="end">有效性检验</text>
+  <rect class="node" x="215" y="1012" width="205" height="76" rx="13"/>
+  <text class="node-title" x="317.5" y="1043">预测能力</text>
+  <text class="node-sub" x="317.5" y="1069">IC · Rank IC</text>
+  <path class="small-arrow" d="M430 1050H458"/>
+  <rect class="node" x="470" y="1012" width="205" height="76" rx="13"/>
+  <text class="node-title" x="572.5" y="1043">稳定与覆盖</text>
+  <text class="node-sub" x="572.5" y="1069">ICIR · Coverage</text>
+  <path class="small-arrow" d="M685 1050H713"/>
+  <rect class="node" x="725" y="1012" width="205" height="76" rx="13"/>
+  <text class="node-title" x="827.5" y="1043">标准化回测</text>
+  <text class="node-sub" x="827.5" y="1069">Top-K · 等权 · 成本</text>
+  <path class="small-arrow" d="M940 1050H968"/>
+  <rect class="node-output" x="980" y="1012" width="205" height="76" rx="13"/>
+  <text class="node-title" x="1082.5" y="1043">综合评价</text>
+  <text class="node-sub" x="1082.5" y="1069">收益 · 风险 · 换手</text>
+  <text class="note" x="700" y="1120">统一股票池、持仓规则和交易成本，保证不同候选因子的结果可比</text>
+
+  <!-- Module 4 -->
+  <rect class="card-final" x="170" y="1225" width="1060" height="270" rx="22"/>
+  <path class="header-final" d="M192 1225H1208Q1230 1225 1230 1247V1330H170V1247Q170 1225 192 1225Z"/>
+  <circle class="number-final" cx="230" cy="1277" r="31"/>
+  <text class="number-text" x="230" y="1277">4</text>
+  <text class="module-title" x="285" y="1285">因子筛选与因子库构建</text>
+  <text class="module-tag" x="1170" y="1283" text-anchor="end">研究输出</text>
+  <rect class="node" x="215" y="1357" width="205" height="76" rx="13"/>
+  <text class="node-title" x="317.5" y="1388">综合筛选</text>
+  <text class="node-sub" x="317.5" y="1414">质量 + 回测表现</text>
+  <path class="small-arrow" d="M430 1395H458"/>
+  <rect class="node" x="470" y="1357" width="205" height="76" rx="13"/>
+  <text class="node-title" x="572.5" y="1388">因子去重</text>
+  <text class="node-sub" x="572.5" y="1414">表达式规范化</text>
+  <path class="small-arrow" d="M685 1395H713"/>
+  <rect class="node" x="725" y="1357" width="205" height="76" rx="13"/>
+  <text class="node-title" x="827.5" y="1388">信息登记</text>
+  <text class="node-sub" x="827.5" y="1414">指标 · 方向 · 元数据</text>
+  <path class="small-arrow" d="M940 1395H968"/>
+  <rect class="node-output" x="980" y="1357" width="205" height="76" rx="13"/>
+  <text class="node-title" x="1082.5" y="1388">合格因子库</text>
+  <text class="node-sub" x="1082.5" y="1414">供第二章动态选择</text>
+  <text class="note" x="700" y="1465">保存因子表达式、质量指标、回测结果及适用信息</text>
+
+  <!-- Closed-loop feedback -->
+  <path class="feedback" d="M170 1360H82V670H158"/>
+  <rect x="18" y="923" width="128" height="176" rx="14" fill="#FFF7EF" stroke="#E7A66B" stroke-width="1.7"/>
+  <text class="feedback-label" x="82" y="960">质量反馈</text>
+  <text class="feedback-label" x="82" y="990">未通过筛选</text>
+  <text class="feedback-label" x="82" y="1020">记录原因</text>
+  <text class="feedback-label" x="82" y="1050">继续生成</text>
+  <text class="feedback-label" x="82" y="1080">更新PPO策略</text>
+
+  <!-- Footer -->
+  <line x1="170" y1="1585" x2="1230" y2="1585" stroke="#D7E3EF" stroke-width="2"/>
+  <line x1="250" y1="1630" x2="305" y2="1630" stroke="#1768C4" stroke-width="4" marker-end="url(#arrow-blue)"/>
+  <text class="legend" x="325" y="1636">主研究流程</text>
+  <line x1="570" y1="1630" x2="625" y2="1630" stroke="#5C8FC7" stroke-width="2.5" marker-end="url(#arrow-small)"/>
+  <text class="legend" x="645" y="1636">模块内关键步骤</text>
+  <line x1="920" y1="1630" x2="975" y2="1630" stroke="#D7772B" stroke-width="4" stroke-dasharray="11 8" marker-end="url(#arrow-orange)"/>
+  <text class="legend" x="995" y="1636">质量反馈闭环</text>
+  <text class="legend" x="700" y="1692" text-anchor="middle">图1  基于强化学习的因子生成与有效性检验闭环（四模块）</text>
+</svg>

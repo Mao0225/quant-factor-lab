@@ -1,0 +1,75 @@
+# Python and local development
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+env/
+.idea/
+.vscode/
+
+# Local credentials and machine-specific settings
+.env
+.env.*
+!.env.example
+*.local.yaml
+*.local.yml
+*.local.json
+*.pem
+*.p12
+*.pfx
+
+# Logs and temporary files
+*.log
+*.err
+*.tmp
+*.bak
+*.swp
+*.swo
+Thumbs.db
+.DS_Store
+
+# Local datasets, models, and archives
+*.csv
+*.parquet
+*.feather
+*.arrow
+*.npy
+*.npz
+*.pt
+*.pth
+*.ckpt
+*.pkl
+*.pickle
+*.db
+*.sqlite
+*.sqlite3
+*.zip
+*.tar
+*.tar.gz
+
+# Generated project data and runs
+/custom_backtester/data_cache/
+/custom_backtester/factor_runs/
+/custom_backtester/jobs/
+/custom_backtester/outputs/
+/single_factor/cache/
+/single_factor/data/
+/single_factor/run/
+/research_data/snapshots/
+/research_data/current.txt
+/research_data/manifest.json
+/research_runs/
+/closed_loop_research/workspace/
+
+# Local review artifacts
+/_qa_research_*/
+/docs_render_check/
+/findings.md
+/progress.md
+/task_plan.md

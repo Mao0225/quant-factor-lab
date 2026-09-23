@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "selection_id": "20260920_135735_839523_408bba84",
+  "created_at": "2026-09-20T13:57:35",
+  "strategy_name": "fixed strategy",
+  "strategy_fingerprint": "ff09c3799fa39a1a1f7e6fffbf0ea82234d3a7d725fb0f58dfc8daaac2e3ac54",
+  "pool_id": "pool1",
+  "requested_date": "2024-01-08",
+  "as_of_date": "2024-01-08",
+  "cache_max_date": "2024-01-08",
+  "selected_count": 4,
+  "eligible_count": 4,
+  "total_count": 4,
+  "retrospective": true,
+  "warnings": [
+    "历史回看预览：策略形成或研究时间不早于评分日，或时间记录不完整；本次结果不属于样本外选股。",
+    "研究截止日期未知，无法确认样本外状态。",
+    "仅 4 只股票通过筛选，少于请求的 Top 20。"
+  ],
+  "research_end": null,
+  "formed_at": "2020-01-01T00:00:00",
+  "top_n": 20,
+  "min_factor_coverage": 1.0,
+  "exclude_suspended": true,
+  "active_factor_count": 2,
+  "source_signature": "version-1",
+  "master_store": "F:\\my_code_file\\因子构建\\生成因子＋回测系统\\custom_backtester\\.pytest_tmp_stock_selection_green2\\test_unknown_research_provenan0\\master",
+  "output_dir": "F:\\my_code_file\\因子构建\\生成因子＋回测系统\\custom_backtester\\.pytest_tmp_stock_selection_green2\\test_unknown_research_provenan0\\selections\\20260920_135735_839523_408bba84"
+}

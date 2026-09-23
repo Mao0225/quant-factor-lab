@@ -1,0 +1,1 @@
+{"comparison":"exact full dictionary equality using canonical sorted weights: daily, trades, orders, positions, selections, actions and metrics","passed":true,"positions":23140,"reference_seconds":18.79095679999955,"segment":"F","sessions":484,"trades":17013}

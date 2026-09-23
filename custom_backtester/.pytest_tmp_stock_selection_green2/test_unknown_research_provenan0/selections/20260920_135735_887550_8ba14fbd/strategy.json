@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "source_path": "F:\\my_code_file\\因子构建\\生成因子＋回测系统\\custom_backtester\\.pytest_tmp_stock_selection_green2\\test_unknown_research_provenan0\\composite",
+  "name": "fixed strategy",
+  "pool_id": "pool1",
+  "codes": [
+    "000001",
+    "000002",
+    "000003",
+    "000004"
+  ],
+  "components": [
+    {
+      "factor_id": "f1",
+      "expression": "ts_mean(signal,2)",
+      "weight": 2.0,
+      "preprocess": {
+        "method": "alphagen_normalize_by_day",
+        "scope": "daily_cross_section",
+        "center": "daily_mean",
+        "scale": "daily_std",
+        "std_ddof": 0,
+        "non_finite_fill_value": 0.0
+      }
+    },
+    {
+      "factor_id": "f2",
+      "expression": "other",
+      "weight": -0.5,
+      "preprocess": {
+        "method": "alphagen_normalize_by_day",
+        "scope": "daily_cross_section",
+        "center": "daily_mean",
+        "scale": "daily_std",
+        "std_ddof": 0,
+        "non_finite_fill_value": 0.0
+      }
+    }
+  ],
+  "formed_at": "2024-01-09T10:00:00",
+  "research_end": "2024-01-04",
+  "research_sources": [],
+  "provenance_warnings": [],
+  "source_signature": "version-1",
+  "source_csv": null,
+  "fingerprint": "49228f46e267f98b0c3991dcf8b5d478ba7a05a176068241f8a9c3e3c64d0914"
+}

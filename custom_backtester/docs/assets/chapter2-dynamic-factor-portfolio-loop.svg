@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1900" viewBox="0 0 1400 1900" role="img" aria-labelledby="title desc">
+  <title id="title">第二章：市场状态感知的动态因子选择与组合构建闭环流程图</title>
+  <desc id="desc">从合格因子库和市场行情出发，经过市场状态识别、因子行为聚类、动态路由、Top-K因子选择、Alpha合成和组合回测，进入下一交易日后更新市场与因子表现，形成滚动闭环。</desc>
+  <defs>
+    <filter id="shadow" x="-10%" y="-20%" width="120%" height="150%">
+      <feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#173B63" flood-opacity="0.11"/>
+    </filter>
+    <marker id="arrow-blue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M1,1 L11,6 L1,11 Z" fill="#1768C4"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M1,1 L11,6 L1,11 Z" fill="#D77628"/>
+    </marker>
+    <style>
+      .title { font: 700 36px "Microsoft YaHei","PingFang SC","Noto Sans CJK SC",Arial,sans-serif; fill:#16395F; }
+      .kicker { font: 600 18px "Microsoft YaHei","PingFang SC","Noto Sans CJK SC",Arial,sans-serif; fill:#1768C4; letter-spacing:2px; }
+      .subtitle { font: 400 18px "Microsoft YaHei","PingFang SC","Noto Sans CJK SC",Arial,sans-serif; fill:#5D7186; }
+      .card { fill:#F9FCFF; stroke:#77A9E4; stroke-width:2.5; rx:18; filter:url(#shadow); }
+      .card-output { fill:#F2FAF6; stroke:#55A077; stroke-width:2.8; rx:18; filter:url(#shadow); }
+      .card-title { font: 700 27px "Microsoft YaHei","PingFang SC","Noto Sans CJK SC",Arial,sans-serif; fill:#20384F; }
+      .card-note { font: 400 18px "Microsoft YaHei","PingFang SC","Noto Sans CJK SC",Arial,sans-serif; fill:#5E7082; }
+      .number { fill:#1768C4; }
+      .number-output { fill:#2F7D5C; }
+      .number-text { font: 700 21px Arial,sans-serif; fill:#FFFFFF; text-anchor:middle; dominant-baseline:middle; }
+      .divider { stroke:#D8E6F4; stroke-width:2; }
+      .icon { fill:none; stroke:#1768C4; stroke-width:5; stroke-linecap:round; stroke-linejoin:round; }
+      .icon-output { fill:none; stroke:#2F7D5C; stroke-width:5; stroke-linecap:round; stroke-linejoin:round; }
+      .main-arrow { fill:none; stroke:#1768C4; stroke-width:4; marker-end:url(#arrow-blue); }
+      .feedback-arrow { fill:none; stroke:#D77628; stroke-width:4; marker-end:url(#arrow-orange); }
+      .rolling-arrow { fill:none; stroke:#1768C4; stroke-width:3.5; stroke-dasharray:10 8; marker-end:url(#arrow-blue); }
+      .feedback-label { font: 600 17px "Microsoft YaHei","PingFang SC","Noto Sans CJK SC",Arial,sans-serif; fill:#B85E1C; }
+      .rolling-label { font: 600 16px "Microsoft YaHei","PingFang SC","Noto Sans CJK SC",Arial,sans-serif; fill:#1768C4; }
+      .legend { font: 400 16px "Microsoft YaHei","PingFang SC","Noto Sans CJK SC",Arial,sans-serif; fill:#617589; }
+    </style>
+  </defs>
+
+  <rect width="1400" height="1900" fill="#FFFFFF"/>
+  <text x="700" y="52" class="kicker" text-anchor="middle">研究方案 · 第二章</text>
+  <text x="700" y="100" class="title" text-anchor="middle">市场状态感知的动态因子选择与组合构建</text>
+  <text x="700" y="137" class="subtitle" text-anchor="middle">状态识别—动态路由—Alpha合成—组合评价</text>
+
+  <!-- Main vertical arrows -->
+  <path class="main-arrow" d="M700 300 L700 352"/>
+  <path class="main-arrow" d="M700 500 L700 552"/>
+  <path class="main-arrow" d="M700 700 L700 752"/>
+  <path class="main-arrow" d="M700 900 L700 952"/>
+  <path class="main-arrow" d="M700 1100 L700 1152"/>
+  <path class="main-arrow" d="M700 1300 L700 1352"/>
+  <path class="main-arrow" d="M700 1500 L700 1552"/>
+
+  <!-- Card 1 -->
+  <rect class="card" x="190" y="170" width="1020" height="130" rx="18"/>
+  <g class="icon" transform="translate(230 202)">
+    <path d="M5 9h48v45H5z"/>
+    <path d="M15 9V3h28v6"/>
+    <path d="M17 27h24M17 39h18"/>
+    <path d="M42 49l5 5 10-14"/>
+  </g>
+  <circle class="number" cx="340" cy="235" r="28"/>
+  <text class="number-text" x="340" y="235">1</text>
+  <line class="divider" x1="395" y1="195" x2="395" y2="275"/>
+  <text class="card-title" x="435" y="226">合格因子库与行情输入</text>
+  <text class="card-note" x="435" y="262">读取合格因子、因子值、评价结果和股票日频行情</text>
+
+  <!-- Card 2 -->
+  <rect class="card" x="190" y="370" width="1020" height="130" rx="18"/>
+  <g class="icon" transform="translate(230 401)">
+    <path d="M5 11h48M5 28h48M5 45h48"/>
+    <circle cx="18" cy="11" r="6" fill="#F9FCFF"/>
+    <circle cx="39" cy="28" r="6" fill="#F9FCFF"/>
+    <circle cx="27" cy="45" r="6" fill="#F9FCFF"/>
+  </g>
+  <circle class="number" cx="340" cy="435" r="28"/>
+  <text class="number-text" x="340" y="435">2</text>
+  <line class="divider" x1="395" y1="395" x2="395" y2="475"/>
+  <text class="card-title" x="435" y="426">市场状态特征构建</text>
+  <text class="card-note" x="435" y="462">市场收益、波动率、上涨比例与横截面收益离散度</text>
+
+  <!-- Card 3 -->
+  <rect class="card" x="190" y="570" width="1020" height="130" rx="18"/>
+  <g class="icon" transform="translate(230 601)">
+    <circle cx="29" cy="29" r="25"/>
+    <path d="M29 4v8M29 46v8M4 29h8M46 29h8"/>
+    <path d="M29 29l15-10M29 29l-7 13"/>
+    <circle cx="29" cy="29" r="4"/>
+  </g>
+  <circle class="number" cx="340" cy="635" r="28"/>
+  <text class="number-text" x="340" y="635">3</text>
+  <line class="divider" x1="395" y1="595" x2="395" y2="675"/>
+  <text class="card-title" x="435" y="626">市场状态识别</text>
+  <text class="card-note" x="435" y="662">识别牛市、熊市、震荡和高波动四类市场状态</text>
+
+  <!-- Card 4 -->
+  <rect class="card" x="190" y="770" width="1020" height="130" rx="18"/>
+  <g class="icon" transform="translate(230 800)">
+    <circle cx="10" cy="13" r="7"/>
+    <circle cx="47" cy="13" r="7"/>
+    <circle cx="28" cy="48" r="7"/>
+    <path d="M17 15h23M14 19l10 23M44 19L32 42"/>
+  </g>
+  <circle class="number" cx="340" cy="835" r="28"/>
+  <text class="number-text" x="340" y="835">4</text>
+  <line class="divider" x1="395" y1="795" x2="395" y2="875"/>
+  <text class="card-title" x="435" y="826">因子行为分析与聚类</text>
+  <text class="card-note" x="435" y="862">滚动评价因子表现，聚类并从各类别选取代表因子</text>
+
+  <!-- Card 5 -->
+  <rect class="card" x="190" y="970" width="1020" height="130" rx="18"/>
+  <g class="icon" transform="translate(230 1002)">
+    <path d="M4 10h18l8 14 8-14h18"/>
+    <path d="M30 24v31"/>
+    <path d="M19 43l11 12 11-12"/>
+    <circle cx="4" cy="10" r="3"/>
+    <circle cx="56" cy="10" r="3"/>
+  </g>
+  <circle class="number" cx="340" cy="1035" r="28"/>
+  <text class="number-text" x="340" y="1035">5</text>
+  <line class="divider" x1="395" y1="995" x2="395" y2="1075"/>
+  <text class="card-title" x="435" y="1026">动态因子路由</text>
+  <text class="card-note" x="435" y="1062">融合市场状态与因子近期表现，计算因子动态得分</text>
+
+  <!-- Card 6 -->
+  <rect class="card" x="190" y="1170" width="1020" height="130" rx="18"/>
+  <g class="icon" transform="translate(230 1202)">
+    <path d="M4 8h52L36 30v21l-13 7V30z"/>
+    <path d="M42 45l6 6 10-15"/>
+  </g>
+  <circle class="number" cx="340" cy="1235" r="28"/>
+  <text class="number-text" x="340" y="1235">6</text>
+  <line class="divider" x1="395" y1="1195" x2="395" y2="1275"/>
+  <text class="card-title" x="435" y="1226">Top-K因子选择与权重分配</text>
+  <text class="card-note" x="435" y="1262">选择高分因子并分配权重，抑制因子频繁切换</text>
+
+  <!-- Card 7 -->
+  <rect class="card" x="190" y="1370" width="1020" height="130" rx="18"/>
+  <g class="icon" transform="translate(230 1401)">
+    <path d="M5 55V7M5 55h53"/>
+    <path d="M12 45l12-13 10 7 18-24"/>
+    <circle cx="24" cy="32" r="3"/>
+    <circle cx="34" cy="39" r="3"/>
+    <circle cx="52" cy="15" r="3"/>
+  </g>
+  <circle class="number" cx="340" cy="1435" r="28"/>
+  <text class="number-text" x="340" y="1435">7</text>
+  <line class="divider" x1="395" y1="1395" x2="395" y2="1475"/>
+  <text class="card-title" x="435" y="1426">Alpha合成与股票组合构建</text>
+  <text class="card-note" x="435" y="1462">标准化加权得到Alpha，Top-N选股并构建多头等权组合</text>
+
+  <!-- Card 8 -->
+  <rect class="card-output" x="190" y="1570" width="1020" height="130" rx="18"/>
+  <g class="icon-output" transform="translate(230 1601)">
+    <path d="M7 5h44v53H7z"/>
+    <path d="M17 19h24M17 31h16"/>
+    <path d="M17 49l9-9 7 5 12-15"/>
+  </g>
+  <circle class="number-output" cx="340" cy="1635" r="28"/>
+  <text class="number-text" x="340" y="1635">8</text>
+  <line class="divider" x1="395" y1="1595" x2="395" y2="1675"/>
+  <text class="card-title" x="435" y="1626">交易回测与绩效评价</text>
+  <text class="card-note" x="435" y="1662">下一日执行，计入停牌、费用与滑点，评价收益和风险</text>
+
+  <!-- Feedback loops -->
+  <path class="feedback-arrow" d="M1210 1235 H1295 V1035 H1216"/>
+  <rect x="1162" y="1107" width="214" height="58" rx="12" fill="#FFF6ED" stroke="#EDB37E" stroke-width="1.5"/>
+  <text class="feedback-label" x="1269" y="1131" text-anchor="middle">权重稳定性反馈</text>
+  <text class="feedback-label" x="1269" y="1153" text-anchor="middle">约束频繁切换</text>
+
+  <path class="rolling-arrow" d="M190 1635 H82 V435 H184"/>
+  <rect x="24" y="922" width="116" height="236" rx="12" fill="#F3F8FE" stroke="#AFCBEA" stroke-width="1.5"/>
+  <text class="rolling-label" x="82" y="960" text-anchor="middle">进入下一</text>
+  <text class="rolling-label" x="82" y="988" text-anchor="middle">交易日</text>
+  <text class="rolling-label" x="82" y="1030" text-anchor="middle">更新市场</text>
+  <text class="rolling-label" x="82" y="1058" text-anchor="middle">与因子表现</text>
+  <path d="M52 1100h60" stroke="#1768C4" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#arrow-blue)"/>
+
+  <!-- Footer -->
+  <line x1="190" y1="1780" x2="1210" y2="1780" stroke="#DCE7F2" stroke-width="2"/>
+  <circle cx="226" cy="1823" r="7" fill="#1768C4"/>
+  <text class="legend" x="245" y="1829">实线：主应用流程</text>
+  <line x1="475" y1="1823" x2="525" y2="1823" stroke="#D77628" stroke-width="4" marker-end="url(#arrow-orange)"/>
+  <text class="legend" x="545" y="1829">橙色：权重稳定性反馈</text>
+  <line x1="825" y1="1823" x2="875" y2="1823" stroke="#1768C4" stroke-width="3.5" stroke-dasharray="10 8" marker-end="url(#arrow-blue)"/>
+  <text class="legend" x="895" y="1829">虚线：下一交易日滚动更新</text>
+  <text class="legend" x="700" y="1872" text-anchor="middle">图2  市场状态感知的动态因子选择与组合构建闭环</text>
+</svg>
